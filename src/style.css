@@ -1,0 +1,193 @@
+:root{
+    --color-1: #ff004c;
+    --color-2: #00e1ff;
+    --color-3: #7bff00;
+}
+
+body{
+    background-color: #555;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex; /* ==> Por causa da flexibilidade causada pelo display flex, o container
+    vai tentar manter a direção de linha a qualquer custo, mesmo que tenha que alterar 
+    o tamanho dos filhos */
+
+
+/*.                                         1  ===                                                .*/
+
+
+    /* flex-direction: column; ==> Define a dirção como coluna, fazendo com que tente preencher todo o
+    elemento pai com os conteúdos contidos  */
+
+    Flex-direction: row; /* ==> Define a direção como linha */
+
+    /* Flex-direction: column-reverse ==> Direção de coluna começando de baixo pra cima*/
+    /* Flex-direction: row-reverse ==> Direção de linha começando da direita pra esquerda*/
+
+
+/*.                                          2 ===                                                .*/
+
+
+    flex-wrap: wrap; /* ==> Flex-wrap tenta preservar as medidas de tamanho dos elementos,
+    quando este estiver prestes a ter seu tamanho violado, uma outra linha ou coluna é 
+    criada, e por conta disso pode vazar do elemento pai  */
+
+    /* flex-wrap: wrap-reverse ==> Inverte as linhas e colunas */
+
+
+/*.                                          3 ===                                                .*/
+
+
+    flex-flow: row wrap; /* ==> É uma forma mais abreviada para se passar as 
+    propiedades direction e wrap, tornando o código mais simples e ágil */
+
+
+/*.                                          4 ===                                                .*/
+
+
+/* justify-content alinha os elementos no eixo X ---> o flex direction tbm altera o 
+    eixo a qual o JC é aplicado */
+
+    justify-content: flex-end;/* ==> Alinha os elementos colados no final do Pai( right ou top) */
+
+    justify-content: flex-start; /* ==> Alinha os elementos colados no início da Pai( left ou bottom ) */
+
+    justify-content: center; /* ==> Coloca os elementos no centro*/
+
+    justify-content: space-between; /* ==> Cria um espaço entre os elementos */
+
+    justify-content: space-around; /* ==> Cria para ambos os lados dos elementos */
+
+
+/*.                                          5 ===                                                .*/
+
+
+    /* Align-Items ==> alinha os elementos no eixo Y ---> o flex direction tbm altera o 
+    eixo a qual o JC é aplicado */
+
+    align-items: stretch; /* ==> Estica os elementos, é o valor default do alig-items */
+
+    align-items: flex-start;
+
+    align-items: flex-end;
+
+    align-items: center;
+
+    /* Etc... */
+
+
+/*.                                          6 ===                                                .*/
+
+
+    /* Align-Content ==> alinha as linhas em relação aos elementos */
+    align-content: center;
+
+
+/*.                                          7 ===                                                .*/
+
+
+    /* Flex-Shrink ==> É oque permite se um elemento pode encolher ou não sendo: 
+    0 -> NÃO
+    1 -> SIM 
+*/
+
+
+/*.                                          8 ===                                                .*/
+
+
+    /* Flex-grow ==> É a habilidade do elemento de aumentar, sendo:
+    0 -> NÃO
+    1 -> SIM  
+
+    Se colocarmos outros números, o flex-grow 
+    tornará o tamanho do próprio elemento uma 
+    multiplicação entre o parâmetro escrito e o tamanho 
+    dos outros elementos, exemplo:
+
+    elemento 1{
+        flex-grow: 1;
+    }
+    elemento 2{
+        flex-grow: 2; ==> Esse elemento sempre terá o dobro do elemento 1
+    }
+*/
+
+
+/*.                                          9 ===                                                .*/
+
+
+    /* Order --> Modifica a ordem dos elementos sem precisar alterar o HTML
+    
+    OBS: Os elementos com a ordem do HTML começam do 0, ou seja:
+    .r1 => 0
+    .r2 => 1
+    .r3 => 2
+*/
+
+
+/*.                                          10 ===                                                .*/
+
+
+    /* Align-Self --> Modifica o alinhamento somente do próprio elemento 
+    OBS: Ele é aplicado diretamente no elemento
+*/
+    align-self: center;
+
+    background-color: #111a;
+    color: white;
+    border-radius: 1.5rem;
+}
+
+.r1{
+    background-color: var(--color-1);
+    transition: all .3s;
+
+    flex-grow: 1;
+
+    order: 3;
+
+    align-self: center;
+}
+
+.r2{
+    background-color: var(--color-2);
+    transition: all .3s;
+
+    flex-shrink: 0;
+
+    order: 1;
+}
+
+.r3{
+    background-color: var(--color-3);
+    transition: all .3s;
+
+    flex-grow: 1;
+
+    order: 2;
+}
+
+.r1:hover{box-shadow: 0px 0px 1.5rem var(--color-1);}
+.r2:hover{box-shadow: 0px 0px 1.5rem var(--color-2);}
+.r3:hover{box-shadow: 0px 0px 1.5rem var(--color-3);}
+
+.rect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 3rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    margin: 2rem;
+
+    height: 200px;
+    width:  200px;
+    border-radius: 1.3rem;
+    cursor: pointer;
+}
